@@ -1,0 +1,49 @@
+! Settings for the grid and splines 
+&GRID
+r_max = 2000. 
+N_points = 2000
+para_index = 20
+spline_order = 7
+N_gauss_leg = 5
+
+l_max = 25 ! Maximum nr. of angular components 
+/ 
+
+&EIGENSTATES
+determine_bound = .false.
+determine_continuum = .false. 
+E_max = 1.  ! Maximum energy to calculate for continuum states 
+eps = 1.e-12
+max_iter = 50  
+/
+
+! Settings for the real time propagation and fields 
+&PROPAGATION
+
+! Field parameters 
+lambda = 800.  ! Carrier wavelenght in nm 
+I0 = 1.  ! Intensity in 10^14 W/cm^2
+CEP = 0.  ! Carrier envelope phase, units of pi 
+Nc = 2  ! Nr. of cycles within envelope 
+
+dt = 0.1  ! Time steps used in simulation 
+t_sim = 4.  ! Time to simulate for, units of field duration 
+
+N_krylov = 25
+tol_residual = 1.e-11
+res_bound_low = 1.e-12
+res_bound_upper = 1.e-13
+/
+
+! Settings for window spectrum calculation 
+&WINDOW_SPEC
+N_E = 10 
+E_min = -0.3
+E_max = 1.5
+gamma = 0.001
+
+cal_PMD = .true.
+N_theta = 80 
+theta_min = 0.  ! Units of pi 
+theta_max = 1.   ! Units of pi 
+/

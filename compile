@@ -1,0 +1,10 @@
+#!/bin/bash 
+
+#ifort utils.f90 GaussLegendre.f90 potential.f90 B_spline.f90 linalg_routines.f90 eigenstate.f90 -o eigenstate -qmkl
+gfortran utils.f90 GaussLegendre.f90 potential.f90 B_spline.f90 linalg_routines.f90 eigenstate.f90 -o eigenstate -llapack -fcheck=all
+
+gfortran utils.f90 GaussLegendre.f90 potential.f90 B_spline.f90 linalg_routines.f90 propagate.f90 -o propagate -llapack -O3 -march=native #-fopenmp #-fcheck=all
+
+gfortran utils.f90 GaussLegendre.f90 B_spline.f90 spectrum.f90 -o spectrum -fcheck=all
+
+gfortran utils.f90 sph_harm.f90 GaussLegendre.f90 potential.f90 B_spline.f90 linalg_routines.f90 window_spectrum.f90 -o window_spectrum -llapack -O3 -march=native #-fopenmp #-fcheck=all
